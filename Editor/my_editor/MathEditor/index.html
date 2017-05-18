@@ -11,7 +11,7 @@
 
 <div id="MathEditorTools">
     <ul class="clearfix">
-        <li><a href="javascript:editorInsert('{..}');" title="插入数学式,在美元符号内直接写公式">{…}</a></li>
+        <li><a href="javascript:editorInsert('{..}');" title="插入数学式,在美元符号内直接写公式，完成后按 Ctl + Enter 键">{…}</a></li>
         <li><a href="javascript:editorInsert('sqrt( )');" title="根号">√</a></li>
         <li><a href="##" title="3">3</a></li>
         <li><a href="##" title="4">4</a></li>
@@ -30,13 +30,12 @@
 </div>
 <div contenteditable="true" id="MathEditor">
 
-    <p>When $a != 0$, there are two solutions to `ax^2 + bx + c = 0` and
-        they are</p>
-    <p style="text-align:center">
-        `x = (-b +- sqrt(b^2-4ac))/(2a) .`
-    </p>
+    <p>当 $a != 0$, 且 `ax^2 + bx + c = 0` ，求解：
 
-    <p>when `x < y` we have ...</p>
+        `x = (-b +- sqrt(b^2-4ac))/(2a)`
+
+    </p>
+    <p>当 `x < y` 时 ...</p>
 
 </div>
 
