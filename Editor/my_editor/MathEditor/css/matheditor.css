@@ -10,7 +10,7 @@ body{margin:0; padding:0; width:100%; height: 100%;}
 
 
 /********** editor.html *********/
-#MathEditor{width: 100%; padding: 10px; overflow-y:scroll; font-size: 14px; border: 1px #eee solid;border-radius: 0 0 5px 5px;}
+#MathEditor{width: 100%; padding: 10px; overflow-y:auto; font-size: 16px; border: 1px #eee solid;border-radius: 0 0 5px 5px;}
 #MathEditor:focus {outline:none;}
 
 
@@ -19,8 +19,9 @@ body{margin:0; padding:0; width:100%; height: 100%;}
 /********** tool.html  **************/
 #MathEditorTools{border-radius: 5px 5px 0 0; border: 1px #eee solid;}
 #MathEditorTools ul{padding: 10px; margin: 0;}
-#MathEditorTools ul li{list-style:none; float: left; padding: 0 5px;}
-#MathEditorTools ul li a{float: left; padding: 0 5px;}
+#MathEditorTools ul li{list-style:none; float: left; padding: 0 5px; border-left: 1px #eee solid;}
+#MathEditorTools ul li:first-child{border: 0;}
+#MathEditorTools ul li a{float: left; font-size: 20px; font-weight: bold; text-align: center; height: 100%; width: 40px;color: #707070; }
 #MathEditorTools a:link{text-decoration:none}
 #MathEditorTools a:visited{text-decoration:none}
 #MathEditorTools a:hover{text-decoration:none}

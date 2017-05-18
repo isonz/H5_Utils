@@ -1,5 +1,5 @@
 function loadMathEditor(id) {
-    return $("#"+id).contents().find("#MathEditorFrame").contents().find("#MathEditor").html()
+    return $("#"+id).contents().find("#MathEditor").html()
 }
 
 MathJax.Hub.Config({asciimath2jax: {delimiters: [['$','$'], ['`','`']]}});
