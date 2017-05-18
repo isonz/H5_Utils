@@ -1,0 +1,30 @@
+*{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}
+
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clear{clear:both}
+body{margin:0; padding:0; width:100%; height: 100%;}
+
+/********** index.html *********/
+#MathEditorFrame{display: block; width: 100%; height: 100%; border: 0; overflow: hidden;}
+#MathEditorToolsFrame{display: block; width: 100%; height: 45px; border: 0; overflow: hidden;}
+
+
+/********** editor.html *********/
+#MathEditor{width: 100%; padding: 10px; overflow-y:scroll; font-size: 14px; border: 1px #eee solid;border-radius: 0 0 5px 5px;}
+#MathEditor:focus {outline:none;}
+
+
+
+
+/********** tool.html  **************/
+#MathEditorTools{border-radius: 5px 5px 0 0; border: 1px #eee solid;}
+#MathEditorTools ul{padding: 10px; margin: 0;}
+#MathEditorTools ul li{list-style:none; float: left; padding: 0 5px;}
+#MathEditorTools ul li a{float: left; padding: 0 5px;}
+#MathEditorTools a:link{text-decoration:none}
+#MathEditorTools a:visited{text-decoration:none}
+#MathEditorTools a:hover{text-decoration:none}
+#MathEditorTools a:active{text-decoration:none}
+
+
+
