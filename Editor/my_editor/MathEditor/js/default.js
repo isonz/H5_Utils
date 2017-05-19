@@ -1,15 +1,23 @@
 var EDITOR_OBJ = document.getElementById("MathEditor");
 
+$(function () {
+
+    //文字颜色
+   $("#MathEditorTools ul li a.color").toggle(function () {
+       EDITOR_OBJ.focus();
+       document.execCommand('styleWithCSS', false, true);
+       document.execCommand('ForeColor',false,'red');
+   },function () {
+       EDITOR_OBJ.focus();
+       document.execCommand('styleWithCSS', false, true);
+       document.execCommand('ForeColor',false,'black');
+   });
+});
 function editorInsert(command){
     EDITOR_OBJ.focus();
     if('{..}'==command) command = '$ $';
     document.execCommand('insertText',false, command);
     moveCaret(window, -1);
-}
-function Color(){                   // 字体颜色
-    EDITOR_OBJ.focus();
-    document.execCommand('styleWithCSS', false, true);
-    document.execCommand('ForeColor',false,'red');
 }
 function Black(){                   // 加粗
     EDITOR_OBJ.focus();
@@ -26,6 +34,7 @@ function UnderLine(){               // 下划线
 function Image(){                   // 插入图片
     EDITOR_OBJ.focus();
     ImagePath = window.prompt('请输入图片地址：', 'http://');
+    //console.log(ImagePath);
     document.execCommand('InsertImage', false, ImagePath);
 }
 function Link(){                   // 插入图片
