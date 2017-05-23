@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My 3D</title>
+    <script src="jquery-1.7.2.js"></script>
+</head>
+<body>
+<style>
+    *{box-sizing:border-box; -moz-box-sizing:border-box;}
+    ul li{list-style: none;}
+</style>
+
+<div class="post-header-container spheres">
+    <div class="bubble-holder one">
+        <div class="bubble-rotate-offset">
+            <figure class="ball bubble">1</figure>
+        </div>
+    </div>
+    <div class="bubble-holder two">
+        <div class="bubble-rotate-offset">
+            <figure class="ball bubble">2</figure>
+        </div>
+    </div>
+    <div class="bubble-holder three">
+        <div class="bubble-rotate-offset">
+            <figure class="ball bubble">3</figure>
+        </div>
+    </div>
+</div>
+<style>
+    .post-header-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #eef
+    }
+
+    .bubble-holder {
+        width: 24em;
+        height: 24em;
+        position: absolute;
+        margin: 20px;
+        top: -50%;
+        left: 50%;
+        transform: translateX(-75%);
+        animation: move-bubble 15s linear infinite;
+        transform-origin: -200% 200%;
+        opacity: 0;
+    }
+    .bubble-holder.two {
+         transform-origin: -300% -100%;
+         top: 20%;
+         left: 70%;
+     }
+    .bubble-holder.three {
+         transform-origin: 200% 200%;
+         left: 30%;
+     }
+
+    .bubble-rotate-offset {
+        width: 100%;
+        height: 100%;
+        animation: rotate-bubble-offset 15s linear infinite
+    }
+
+    .ball {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        position: relative;
+        background: radial-gradient(circle at bottom, #81e8f6, #76deef 10%, #055194 80%, #062745 100%);
+    }
+    .ball:before,
+    .ball:after {
+         content:"";
+         position: absolute;
+         border-radius: 100%;
+         z-index: 2;
+     }
+    .ball:before {
+         top: 0;
+         left: 0;
+         width: 90%;
+         height: 90%;
+         border-radius: 100%;
+         background: radial-gradient(circle at top,white,rgba(255,255,255,0) 58%);
+         filter: blur(5px);
+     }
+    .ball:after {
+         display: none;
+         top: 5%;
+         left: 10%;
+         width: 80%;
+         height: 80%;
+         border-radius: 100%;
+         filter: blur(1px);
+         transform: rotateZ(-30deg);
+     }
+
+    .ball.bubble {
+        background: radial-gradient(circle at 50% 55%, rgba(240, 245, 255, 0.9), rgba(240, 245, 255, 0.9) 40%, rgba(225, 238, 255, 0.8) 60%, rgba(43, 130, 255, 0.4));
+        animation: bubble-anim 2s ease-out infinite;
+    }
+    .ball:before {
+         filter: blur(0);
+         height: 80%;
+         width: 40%;
+         background: radial-gradient(circle at 130% 130%,rgba(255,255,255,0) 0,rgba(255,255,255,0) 46%,rgba(255,255,255,0.8) 50%,rgba(255,255,255,0.8) 58%,rgba(255,255,255,0) 60%,rgba(255,255,255,0) 100%);
+         transform: translateX(131%) translateY(58%) rotateZ(168deg) rotateX(10deg)
+     }
+    .ball:after {
+         display: block;
+         background: radial-gradient(circle at 50% 80%,rgba(255,255,255,0),rgba(255,255,255,0) 74%,white 80%,white 84%,rgba(255,255,255,0) 100%)
+     }
+
+    @keyframes bubble-anim {
+        0% {
+            transform: scale(1)
+        }
+
+        20% {
+            transform: scaleY(0.95) scaleX(1.05)
+        }
+
+        48% {
+            transform: scaleY(1.1) scaleX(0.9)
+        }
+
+        68% {
+            transform: scaleY(0.98) scaleX(1.02)
+        }
+
+        80% {
+            transform: scaleY(1.02) scaleX(0.98)
+        }
+
+        97%,100% {
+            transform: scale(1)
+        }
+    }
+
+    @keyframes move-bubble {
+        0% {
+            transform: translateX(-50%) rotateZ(-30deg);
+            opacity: 0
+        }
+
+        10% {
+            opacity: 1
+        }
+
+        80% {
+            opacity: 1
+        }
+
+        100% {
+            opacity: 0;
+            transform: translateX(-50%) rotateZ(30deg)
+        }
+    }
+
+    @keyframes rotate-bubble-offset {
+        0% {
+            transform: rotateZ(30deg)
+        }
+
+        100% {
+            transform: rotateZ(-30deg)
+        }
+    }
+
+    @keyframes move-eye-skew {
+        0% {
+            transform: none
+        }
+
+        20% {
+            transform: translateX(-4.25em) translateY(1.875em) skewX(15deg) skewY(-10deg) scale(0.95)
+        }
+
+        25%,44% {
+            -webkit-transform: none;
+            transform: none
+        }
+
+        50%,60% {
+            transform: translateX(4.25em) translateY(-2.5em) skewX(5deg) skewY(2deg) scaleX(0.95)
+        }
+
+        66%,100% {
+            transform: none
+        }
+    }
+</style>
+
+</body>
+</html>
