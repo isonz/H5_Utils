@@ -2,6 +2,9 @@ var EDITOR_OBJ = document.getElementById("MathEditor");
 
 $(function () {
 
+    window.onresize=resizeWindow;
+    resizeWindow();
+
     //文字颜色
    $("#MathEditorTools ul li a.color").toggle(function () {
        EDITOR_OBJ.focus();
@@ -13,11 +16,17 @@ $(function () {
        document.execCommand('ForeColor',false,'black');
    });
 });
+
+function resizeWindow(){
+    $("#MathEditor").height(parseInt($(window).height())-parseInt($("#MathEditorTools").height())-30+"px");
+}
+
 function editorInsert(command){
     EDITOR_OBJ.focus();
-    if('{..}'==command) command = '$ $';
+    if('|...|' == command) command = '$  $';
     document.execCommand('insertText',false, command);
     moveCaret(window, -1);
+    //reMath();
 }
 function Black(){                   // 加粗
     EDITOR_OBJ.focus();
@@ -61,4 +70,15 @@ function moveCaret(win, charCount) {
         }
     }
 }
+
+function reMath() {
+    var math = document.getElementById("MathEditor");
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, math]);
+}
+
+$(document).keypress(function(e){
+    if(e.ctrlKey && e.which == 13 || e.which == 10) {
+        reMath();
+    }
+});
 

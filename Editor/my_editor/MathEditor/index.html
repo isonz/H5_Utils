@@ -6,12 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="css/matheditor.css" rel="stylesheet">
     <title>MyEditor</title>
+    <script src="js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" async src="MathJax/MathJax.js?config=AM_CHTML,Safe&locale=zh-hans"></script>
 </head>
 <body>
 
 <div id="MathEditorTools">
     <ul class="clearfix">
-        <li><a href="javascript:editorInsert('{..}');" title="插入数学式,在美元符号内直接写公式，完成后按 Ctl + Enter 键">{…}</a></li>
+        <li><a href="javascript:editorInsert('|...|');" title="插入数学式,在美元符号内直接写公式，完成后按 Ctl + Enter 键">|...|</a></li>
         <li><a href="javascript:editorInsert('sqrt( )');" title="根号">√</a></li>
         <li><a href="##" title="3">3</a></li>
         <li><a href="##" title="4">4</a></li>
@@ -39,18 +41,8 @@
 
 </div>
 
-<script src="js/jquery-1.7.2.js"></script>
-<script>
-    $(function () {
-        window.onresize=resizeWindow;
-        resizeWindow();
-    });
-    function resizeWindow(){
-        $("#MathEditor").height(parseInt($(window).height())-parseInt($("#MathEditorTools").height())-30+"px");
-    }
-</script>
 
-<script type="text/javascript" async src="MathJax/MathJax.js?config=AM_CHTML,Safe&locale=zh-hans"></script>
+
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({asciimath2jax: {delimiters: [['$','$'], ['`','`']]}});
 MathJax.Hub.Register.StartupHook("End Jax",function () {
@@ -70,17 +62,7 @@ MathJax.Hub.Config({
     preview: ["[math]"]
 });
 </script>
-<script>
-    $(document).keypress(function(e){
-        if(e.ctrlKey && e.which == 13 || e.which == 10) {
-            reMath();
-        }
-    });
-    function reMath() {
-        var math = document.getElementById("MathEditor");
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub, math]);
-    }
-</script>
+
 <script src="js/default.js"></script>
 </body>
 </html>
