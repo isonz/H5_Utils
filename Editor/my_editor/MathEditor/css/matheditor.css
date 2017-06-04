@@ -16,6 +16,8 @@ body{margin:0; padding:0; width:100%; height: 100%;}
 #MathEditorTools ul li a.math-start{padding: 9px; background: green; color: #fff;}
 #MathEditorTools ul li a.math-start:hover{background: #009c00;}
 #MathEditorTools ul li a.math-start:focus{background: red;}
+#MathEditorTools ul li a.fengshi-menu{font-size: 15px;}
+#MathEditorTools ul li a.fengshi-menu:hover{background: #f6f6f6;}
 
 /********** tool.html  **************/
 #MathEditorTools{border-radius: 5px 5px 0 0; border: 1px #eee solid; display: none;}
