@@ -6,14 +6,19 @@ $(function () {
     resizeWindow();
 
     //文字颜色
-   $("#MathEditorTools ul li a.color").toggle(function () {
-       EDITOR_OBJ.focus();
-       document.execCommand('styleWithCSS', false, true);
-       document.execCommand('ForeColor',false,'red');
-   },function () {
-       EDITOR_OBJ.focus();
-       document.execCommand('styleWithCSS', false, true);
-       document.execCommand('ForeColor',false,'black');
+    var flag=1;
+   $("#MathEditorTools ul li a.color").click(function () {
+       if(flag==1){
+           EDITOR_OBJ.focus();
+           document.execCommand('styleWithCSS', false, true);
+           document.execCommand('ForeColor',false,'red');
+           flag=0;
+       }else {
+           EDITOR_OBJ.focus();
+           document.execCommand('styleWithCSS', false, true);
+           document.execCommand('ForeColor', false, 'black');
+           flag=1;
+       }
    });
 });
 
