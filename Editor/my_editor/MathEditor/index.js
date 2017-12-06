@@ -49,7 +49,10 @@ function setProcessLinkId() {
 function processSuggest() {
     $("#processLink .tag").keyup(function () {
         var val = $(this).val();
-        if(val.length < 2) return false;
+        if(val.length < 2){
+            $("#processLink .content").html('');
+            return false;
+        }
         $.get("suggest.json?tag="+val,function (json) {
             var html = '<ul>';
 
