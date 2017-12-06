@@ -1,3 +1,8 @@
+$(function () {
+    closeProcessLink();
+    processSuggest();
+});
+
 function loadMathEditor(id) {
     return $("#"+id).contents().find("#MathEditor").html()
 }
@@ -20,3 +25,49 @@ MathJax.Hub.Config({
     preview: ["[math]"]
 });
 
+
+function processLink() {
+    $("#processLink").show();
+    return "javascript:getProcessLink(123)";
+}
+
+function closeProcessLink() {
+    $("#processLink .close").click(function () {
+        $("#processLink").hide();
+    });
+}
+
+function setProcessLinkId() {
+    $("#processLink .content li a.tag").click(function () {
+        var tag_id = $(this).attr("data-value");
+        var link = "javascript:getProcessLink("+tag_id+")";
+        $("#mathEditorFrame")[0].contentWindow.setProcessLink(link);
+        $("#processLink").hide();
+    });
+}
+
+function processSuggest() {
+    $("#processLink .tag").keyup(function () {
+        var val = $(this).val();
+        if(val.length < 2) return false;
+        $.get("suggest.json?tag="+val,function (json) {
+            var html = '<ul>';
+
+            for(var i=0; i<json.length; i++){
+                html += '<li><a href="##" class="tag" data-value="'+ json[i].tag_id +'">'+ json[i].tag_name +'</a></li>';
+            }
+
+            html += '</ul>';
+            $("#processLink .content").html(html);
+
+            setProcessLinkId();
+        })
+    });
+}
+
+
+function getProcessLink(pid)
+{
+    //这里通过 AJAX 获取中间页的 HTML
+    alert("这里通过 AJAX 获取中间页 ID 为 "+ pid +" 的HTML");
+}
